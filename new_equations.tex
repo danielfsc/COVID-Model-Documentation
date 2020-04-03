@@ -1,0 +1,84 @@
+% \section{Novas Equações}
+
+% \begin{equation}
+% 	\frac{dS}{dt}= -S\frac{\delta}{100}(\frac{R_{0i}}{N T_{i}} I +\frac{R_{0ig}}{N T_{ig}}I_g)
+% \end{equation}
+% \begin{equation}
+% 	\frac{dE}{dt}= S\frac{\delta}{100}(\frac{R_{0i}}{N T_{i}} I +\frac{R_{0ig}}{N T_{ig}}I_g) - \frac{1}{T_{inc}} E
+% \end{equation}
+% \begin{equation}
+% 	\frac{dI}{dt}= \frac{1}{T_{inc}} E -\frac{\lambda_i}{100T_{i}} I - \frac{\zeta}{100T_{i}} I
+% \end{equation}
+% \begin{equation}
+% 	\frac{dI_G}{dt}=  \frac{\zeta}{100T_{i}} I -(1-\frac{H_l+H_u+H_{lg}+H_{lv}}{\kappa_l+\kappa_u})\frac{\gamma}{100} I_G - \frac{\lambda_{ig}}{100 T_{ig}} I_G - \frac{\mu_{ig}}{100 T_{ig}} I_G
+% \end{equation}
+% \begin{equation}
+% 	% \begin{multlined}
+% 	\frac{dH_l}{dt}=(1-\frac{H_l+H_u+H_{lg}+H_{lv}}{\kappa_l+\kappa_u})\frac{\gamma}{100} I_G - \frac{\lambda_{hl}}{100T_{hl}} H_l - \frac{\nu_u}{100T_{hl}}H_l+ \frac{\lambda_{hu}}{100T_{hu}}H_u +\frac{\lambda_{lg}}{100T_{lg}}H_{lg} +\frac{\lambda_{hv}}{100T_{hv}}H_{lv}
+% 	% \end{multlined}
+% \end{equation}
+% \begin{equation}
+% 	\frac{dH_u}{dt}=\frac{\nu_u}{100T_{hl}} H_l(1 - \frac{H_u}{\kappa_{u}}) -\frac{\lambda_{hu}}{100T_{hu}}H_u -\frac{\lambda_{mu}}{100T_{hu}}H_u
+% \end{equation}
+
+% \begin{equation}
+% 	\frac{dH_{lv}}{dt}=\frac{\nu_u}{100T_{hl}} H_l\frac{H_u}{\kappa_{u}}(1-\frac{H_{lv}}{\kappa_{v}})  - \frac{\lambda_{lv}}{100T_{lv}}H_{lv}-\frac{\mu_{lv}}{100T_{lv}}H_{lv}
+% \end{equation}
+
+% \begin{equation}
+% 	\frac{dH_{lg}}{dt}=\frac{\nu_u}{100T_{hl}} H_l\frac{H_{lv}}{\kappa_{v}}\frac{H_u}{\kappa_{u}} -\frac{\lambda_{lg}}{100T_{lg}}H_{lg}-\frac{\mu_{lg}}{100T_{lg}}H_{lg}
+% \end{equation}
+% \begin{equation}
+% 	\frac{dM}{dt}=\frac{\mu_{ig}}{100 T_{ig}}I_{g} +\frac{\mu_{hl}}{100 T_{hl}}H_l + \frac{\mu_{hu}}{100 T_{hu}}H_u +\frac{\mu_{lv}}{100 T_{lv}} H_{lv}+\frac{\mu_{lg}}{100 T_{lg}} H_{lg}
+% \end{equation}
+% \begin{equation}
+% 	\frac{dC}{dt}=\frac{\lambda_i}{100 T_{i}} I + \frac{\lambda_{ig}}{100 T_{ig}} I_g +\frac{\lambda_{hl}}{100 T_{hl}}H_l 
+% \end{equation}
+
+% Descrição das variáveis, sendo que a notação é [min, max, passo]:
+% \begin{enumerate}
+% 	\item N - Tamanho da população - Livre
+% 	\item $\delta = [0, 100, 1]$
+% 	\item $R_{0i} = [0, 15, 0.01]$
+% 	\item $R_{0ig} = [0, 15, 0.01]$
+% 	\item $T_{X} = [0, 50, 1]$
+% 	\item $\lambda_X = [0,100, 1]$
+% 	\item $\zeta = [0, 100, 1]$
+% 	\item $kappa_l$ é livre (pode deixar numa caixa para digitar)
+% 	\item  $kappa_u$ é livre (pode deixar numa caixa para digitar)
+% 	\item $\gamma = [0,100, 1]$
+% 	\item $\mu_{X} = [0,100, 1]$
+% 	\item $\nu_u = [0,100,1]$
+	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	    \subsection{As variáveis do modelo}
+
+\begin{table}[h!]
+\caption{ Variáveis do modelo}
+	\begin{tabular}{|c|p{10cm}|p{4cm}|l|l}
+		\cline{1-4}
+		Símbolo       & Definição                                                                            & Valor Padrão             & Referência &   \\ \cline{1-4}
+		$\delta$       & Percentual da população que não está seguindo a quarentena                         &                           &             &   \\ \cline{1-4}
+		$\alpha_i$     & Taxa de transmissão entre os infectados e saudáveis                                  & 3/14 Cada I contamina 3 S &             &   \\ \cline{1-4}
+		$\alpha_{ig}$  & Taxa de transmissão entre os infectados graves e saudáveis                           &                           &             &   \\ \cline{1-4}
+		$\beta$        & Taxa de conversão dos Expostos em Infectados (ativos)                                 & 1/14                      &             &   \\ \cline{1-4}
+																												
+		$\lambda_I$    & Taxa de Cura do indivíduo Infectado                                                   &                           &             &   \\ \cline{1-4}
+		$\zeta$        & Taxa de evolução dos infectados para o estado grave                                  &                           &             &   \\ \cline{1-4}
+		$\gamma$       & Percentual dos que estão em estado grave e procuram o hospital                        &                           &             &   \\ \cline{1-4}
+		$\lambda_{ig}$ & Taxa de Cura do indivíduo Infectado grave                                             &                           &             &   \\ \cline{1-4}
+		$\mu_{ig}$     & Taxa de morte do indivíduo Infectado grave                                            &                           &             &   \\ \cline{1-4}
+		$\lambda_{hl}$ & Taxa de Cura do indivíduo hospitalizado em leito comum                                &                           &             &   \\ \cline{1-4}
+		$\lambda_{hu}$ & Taxa de melhora do indivíduo hospitalizado  na UTI                                    &                           &             &   \\ \cline{1-4}
+		$\mu_{hu}$     & Taxa de morte do indivíduo hospitalizado  na UTI                                      &                           &             &   \\ \cline{1-4}
+		$\lambda_{lg}$ & Taxa de melhora do indivíduo hospitalizado  em leito comum e no estado grave          &                           &             &   \\ \cline{1-4}
+		$\mu_{lg}$     & Taxa de morte do indivíduo hospitalizado  em leito comum e no estado grave            &                           &             &   \\ \cline{1-4}
+		$\lambda_{lv}$ & Taxa de melhora do indivíduo hospitalizado  em leito comum e com ventilador mecânico &                           &             &   \\ \cline{1-4}
+		$\mu_{lv}$     & Taxa de morte do indivíduo hospitalizado  em leito comum e com ventilador mecânico   &                           &             &   \\ \cline{1-4}
+		$\nu{u}$       & Taxa de agravamento do indivíduo hospitalizado em leito comum                         &                           &             &   \\ \cline{1-4}
+		$\kappa_u$     & número de leitos de UTI                                                               &                           &             &   \\ \cline{1-4}              
+		$\kappa_l$     & número de leitos comuns                                                               &                           &             &   \\ \cline{1-4}              
+		$\kappa_v$     & número de ventiladores disponíveis  além dos utilizados nas UTIs                    &                           &             &   \\ \cline{1-4}        
+	\end{tabular}
+	
+\end{table}  	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	
+% \end{enumerate}
+
